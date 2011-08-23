@@ -21,7 +21,7 @@ def create_rrd(fn):
       "RRA:AVERAGE:0:1:87840",
     )
 
-USER_AGENT = "BukGet repo statestics by Oddstr13"
+USER_AGENT = "BukGet repo statistics by Oddstr13"
 DEBUG = 0
 
 def update_rrd(fn):
@@ -35,7 +35,7 @@ def update_rrd(fn):
 def graph_rrd(fn, output, start="-1w", end="N", width="600", height="200"):
     width = str(width); height = str(height)
     rrdtool.graph(output,
-      "--title", "BukGet repo statesticks",
+      "--title", "BukGet repo statistics",
       "--start", start,
       "--end", end,
       "--width", width,
@@ -46,7 +46,7 @@ def graph_rrd(fn, output, start="-1w", end="N", width="600", height="200"):
       "--units=si",
       "--base", "1000",
       "--slope-mode",
-      "--watermark", "BukGet repo statestics by Oddstr13",
+      "--watermark", "BukGet repo statistics by Oddstr13",
       "DEF:packages=%s:packages:AVERAGE" %(fn),
       "DEF:authors=%s:authors:AVERAGE" %(fn),
       "DEF:versions=%s:versions:AVERAGE" %(fn),
